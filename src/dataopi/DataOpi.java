@@ -22,6 +22,7 @@ public class DataOpi {
         Person p = new Person();
         p.setCedule(1);
         p.setPinCollection(null);
+        p.setEps(null);
         System.out.println(fachada.crearPersona(p));
         
         

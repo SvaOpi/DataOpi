@@ -5,6 +5,7 @@
     <class>com.dataopi.entity.Payment</class>
     <class>com.dataopi.entity.Person</class>
     <class>com.dataopi.entity.Pin</class>
+    <class>com.dataopi.entity.Eps</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/opi_db"/>
       <property name="javax.persistence.jdbc.password" value="root"/>

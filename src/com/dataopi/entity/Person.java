@@ -14,6 +14,9 @@ public class Person implements Serializable {
     private long cedule;  
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private Collection<Pin> pinCollection;
+    @JoinColumn(name = "EPS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Eps eps;
 
     public long getCedule() {
         return cedule;
@@ -30,5 +33,12 @@ public class Person implements Serializable {
     public void setPinCollection(Collection<Pin> pinCollection) {
         this.pinCollection = pinCollection;
     }
-    
+
+    public Eps getEps() {
+        return eps;
+    }
+
+    public void setEps(Eps eps) {
+        this.eps = eps;
+    }
 }

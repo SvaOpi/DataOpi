@@ -6,6 +6,7 @@ package com.dataopi.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,13 +29,17 @@ public class Pin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
+    private String pinState;
     @Temporal(TemporalType.DATE)
-    private Date creation;
+    private Date creationDate;
+    @Temporal(TemporalType.DATE)
+    private Date limitDate;
+    @OneToOne
+    private Payment payment;
     @JoinColumn(name = "PERSONS_CEDULE", referencedColumnName = "CEDULE", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Person person;
-    @OneToOne
-    private Payment payment;
 
     public long getId() {
         return id;
@@ -44,20 +49,28 @@ public class Pin implements Serializable {
         this.id = id;
     }
 
-    public Date getCreation() {
-        return creation;
+    public String getPinState() {
+        return pinState;
     }
 
-    public void setCreation(Date creation) {
-        this.creation = creation;
+    public void setPinState(String pinState) {
+        this.pinState = pinState;
     }
 
-    public Person getPerson() {
-        return person;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Date getLimitDate() {
+        return limitDate;
+    }
+
+    public void setLimitDate(Date limitDate) {
+        this.limitDate = limitDate;
     }
 
     public Payment getPayment() {
@@ -67,5 +80,12 @@ public class Pin implements Serializable {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
-    
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }

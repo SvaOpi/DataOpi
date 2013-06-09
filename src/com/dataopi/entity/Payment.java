@@ -28,9 +28,7 @@ public class Payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Temporal(TemporalType.DATE)
-    private Date pay;    
-    @Temporal(TemporalType.DATE)
-    private Date extraPay;
+    private Date payDate;
     @Column
     private Double totalValue;    
     @OneToOne
@@ -44,20 +42,12 @@ public class Payment implements Serializable {
         this.id = id;
     }
 
-    public Date getPay() {
-        return pay;
+    public Date getPayDate() {
+        return payDate;
     }
 
-    public void setPay(Date pay) {
-        this.pay = pay;
-    }
-
-    public Date getExtraPay() {
-        return extraPay;
-    }
-
-    public void setExtraPay(Date extraPay) {
-        this.extraPay = extraPay;
+    public void setPayDate(Date payDate) {
+        this.payDate = payDate;
     }
 
     public Double getTotalValue() {
@@ -74,6 +64,5 @@ public class Payment implements Serializable {
 
     public void setPin(Pin pin) {
         this.pin = pin;
-    }    
-    
+    }
 }
