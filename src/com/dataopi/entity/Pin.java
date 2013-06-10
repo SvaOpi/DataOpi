@@ -37,7 +37,7 @@ public class Pin implements Serializable {
     private Date limitDate;
     @OneToOne
     private Payment payment;
-    @JoinColumn(name = "PERSONS_CEDULE", referencedColumnName = "CEDULE", insertable = false, updatable = false)
+    @JoinColumn(referencedColumnName = "CEDULE", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Person person;
 

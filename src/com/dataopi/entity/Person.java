@@ -14,7 +14,7 @@ public class Person implements Serializable {
     private long cedule;  
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private Collection<Pin> pinCollection;
-    @JoinColumn(name = "EPS_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+    @JoinColumn(referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Eps eps;
 
